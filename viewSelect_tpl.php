@@ -29,10 +29,14 @@
     echo '<p>';
     echo $count;
     echo',  ';
-    echo $row["name"];
+    echo $row["products_name"];
     echo ',  \\';
     echo $row["price"];
+    echo '<br>';
+    echo '注文者:';
+    echo $row["user_name"];
     echo '</p>';
+
 
 ?>
 
