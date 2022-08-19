@@ -1,6 +1,6 @@
-CREATE DATABASE order;
+CREATE DATABASE `order`;
 
-CREATE TABLE order.user(
+CREATE TABLE `order`.`user`(
     user_id     nvarchar(35)    NOT NULL,
     name        nvarchar(35)    NOT NULL,
     password    nvarchar(25)    NOT NULL,
@@ -11,19 +11,19 @@ CREATE TABLE order.user(
 
 
 
-CREATE TABLE order.type(
+CREATE TABLE `order`.type(
     type_id     int     NOT NULL AUTO_INCREMENT,
     name        nvarchar(10)    NOT NULL,
     PRIMARY KEY(type_id)
 );
 
-CREATE TABLE order.status(
+CREATE TABLE `order`.status(
     status_id       int     NOT NULL AUTO_INCREMENT,
     status_name          nvarchar(10)    NOT NULL,
     PRIMARY KEY(status_id)
 );
 
-CREATE TABLE order.products(
+CREATE TABLE `order`.products(
     product_id      int     NOT NULL AUTO_INCREMENT,
     type            int     NOT NULL,
     name            nvarchar(35)    NOT NULL,
@@ -34,22 +34,16 @@ CREATE TABLE order.products(
     delivery_date   date,
     PRIMARY KEY(product_id),
     FOREIGN KEY (order_user)    REFERENCES user(user_id),
-    FOREIGN KEY (order_type)    REFERENCES type(type_id),
+    FOREIGN KEY (type)    REFERENCES type(type_id),
     FOREIGN KEY (order_status)  REFERENCES status(status_id)
 );
 
-INSERT INTO order.user VALUES('hoge', '山口太郎', 'P@ssw0rd', 'hoge@yic.ac.jp', 1);
-INSERT INTO order.user VALUES('k-ygawa', '柳川小次郎', 'kojikoji', 'k-ygawa@yic.ac.jp', 2);
-INSERT INTO order.user VALUES('sugi', '杉林伸繁', 'sugisugi', 'sugi@yic.ac.jp', 2);
+INSERT INTO `order`.user VALUES ('hoge', '山口太郎', 'P@ssw0rd', 'hoge@yic.ac.jp', 1),('k-ygawa', '柳川小次郎', 'kojikoji', 'k-ygawa@yic.ac.jp', 2),('sugi', '杉林伸繁', 'sugisugi', 'sugi@yic.ac.jp', 2);
 
-INSERT INTO order.type VALUES(, '書籍');
-INSERT INTO order.type VALUES(, 'サプライ品');
-INSERT INTO order.type VALUES(, 'ドローン');
+INSERT INTO `order`.type(name) VALUES ('書籍'),('サプライ品'),('ドローン');
 
-INSERT INTO order.status VALUES(, '発注済');
-INSERT INTO order.status VALUES(, '納品済');
-INSERT INTO order.status VALUES(, '未発注');
+INSERT INTO `order`.status(status_name) VALUES ('発注済'),('納品済'),('未発注');
 
-INSERT INTO order.products(type, name, price, order_date, order_status, order_user, delivery_date) VALUES( 1, 'iPhoneアプリ開発集中講座', 2728, '2020-6-20', 1, 'hoge', '');
-INSERT INTO order.products(type, name, price, order_date, order_status, order_user, delivery_date) VALUES( 2, 'コピー用紙 A4', 700, '2020-6-21', 2, 'k-ygawa', '2020-6-22');
-INSERT INTO order.products(type, name, price, order_date, order_status, order_user, delivery_date) VALUES( 3, 'DJI Mini 2', 5049, '2020-6-18', 3, 'sugi', '');
+INSERT INTO `order`.products(type, name, price, order_date, order_status, order_user) VALUES ( 1, 'iPhoneアプリ開発集中講座', 2728, '2020-6-20', 1, 'hoge');
+INSERT INTO `order`.products(type, name, price, order_date, order_status, order_user, delivery_date) VALUES ( 2, 'コピー用紙 A4', 700, '2020-6-21', 2, 'k-ygawa', '2020-6-22');
+INSERT INTO `order`.products(type, name, price, order_date, order_status, order_user) VALUES ( 3, 'DJI Mini 2', 5049, '2020-6-18', 3, 'sugi');
