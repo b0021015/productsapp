@@ -37,7 +37,7 @@
     } else {
       $user_name = $result[0]["name"];
       // 5件だけ表示
-      $query = 'SELECT * FROM products limit :begin, :size';
+      $query = 'SELECT *, products.name as products_name, user.name as user_name FROM products inner join user on products.order_user = user.user_id limit :begin, :size';
       $stmt = $pdo->prepare($query);
       $stmt->bindParam(':begin', $start, PDO::PARAM_INT);
       $stmt->bindParam(':size', $size, PDO::PARAM_INT);
