@@ -50,6 +50,6 @@ INSERT INTO order.status VALUES(, '発注済');
 INSERT INTO order.status VALUES(, '納品済');
 INSERT INTO order.status VALUES(, '未発注');
 
-INSERT INTO order.products VALUES(, 1, 'iPhoneアプリ開発集中講座', 2728, '2020-6-20', 1, 'hoge', );
-INSERT INTO order.products VALUES(, 2, 'コピー用紙 A4', 700, '2020-6-21', 2, 'k-ygawa', '2020-6-22');
-INSERT INTO order.products VALUES(, 3, 'DJI Mini 2', 5049, '2020-6-18', 3, 'sugi', );
+INSERT INTO order.products(type, name, price, order_date, order_status, order_user, delivery_date) VALUES( 1, 'iPhoneアプリ開発集中講座', 2728, '2020-6-20', 1, 'hoge', '');
+INSERT INTO order.products(type, name, price, order_date, order_status, order_user, delivery_date) VALUES( 2, 'コピー用紙 A4', 700, '2020-6-21', 2, 'k-ygawa', '2020-6-22');
+INSERT INTO order.products(type, name, price, order_date, order_status, order_user, delivery_date) VALUES( 3, 'DJI Mini 2', 5049, '2020-6-18', 3, 'sugi', '');
